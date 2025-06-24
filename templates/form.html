@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>حجز موعد</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+  {% extends 'base.html' %}
+
+  {% block content %}
+  
+  <section class="form-container">
+      <h2 class="form-title">📅 حجز موعد جديد</h2>
+  
+      <form class="appointment-form" method="POST" action="{{ url_for('form_page') }}">
+          <label for="name">👤 اسم المالك:</label>
+          <input type="text" id="name" name="name" required>
+  
+          <label for="pet">🐾 نوع الحيوان:</label>
+          <input type="text" id="pet" name="pet" required>
+  
+          <label for="reason">💬 سبب الزيارة:</label>
+          <textarea id="reason" name="reason" required></textarea>
+  
+          <label for="date">📅 التاريخ:</label>
+          <input type="date" id="date" name="date" required>
+  
+          <label for="time">⏰ الوقت:</label>
+          <input type="time" id="time" name="time" required>
+  
+          <button type="submit" class="main-button">احجز الموعد</button>
+          
+      </form>
+  </section>
+  
+  {% endblock %}
+  
+  
+  
+</body>
+</html>
+
+
+
+  

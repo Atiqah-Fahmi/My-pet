@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>جدول المواعيد</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="schedule-container">
+    <h2 class="schedule-title">📋 قائمة المواعيد المحجوزة</h2>
+
+    {% if appointments %}
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>المالك</th>
+                    <th>نوع الحيوان</th>
+                    <th>سبب الزيارة</th>
+                    <th>التاريخ</th>
+                    <th>الوقت</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appt in appointments %}
+                    <tr>
+                        <td>{{ appt.name }}</td>
+                        <td>{{ appt.pet }}</td>
+                        <td>{{ appt.reason }}</td>
+                        <td>{{ appt.date }}</td>
+                        <td>{{ appt.time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>لا توجد مواعيد حتى الآن.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

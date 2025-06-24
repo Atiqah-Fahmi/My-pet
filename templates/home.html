@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الصفحة الرئيسية - MyPet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" >
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+ 
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<img src="{{ url_for('static', filename='logo1.pang.png') }}" class="logo-image" alt="شعار العيادة">
+
+<section class="home-container">
+    <h1 class="home-heading">🐾 مرحبًا بك في عيادة My Pet البيطرية</h1>
+    <p class="home-description">
+        نحن هنا لرعاية أصدقائك الأوفياء بكل حب واهتمام.
+    </p>
+
+    <a href="{{ url_for('عن_العيادة') }}" class="main-button">عن العيادة</a>
+</section>
+
+{% endblock %}
+
+</body>
+</html>
+
+
+  

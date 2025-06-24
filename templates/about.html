@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عن العيادة - MyPet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    {% extends 'base.html' %}
+
+    {% block content %}
+    
+    <section class="about-container">
+    
+      <h2 class="schedule-title">📱 جدول خدمات الأسبوع</h2>
+    
+      <div class="weekly-cards">
+        {% set schedule = [
+          ('السبت', '🔧', 'عمليات جراحية'),
+          ('الأحد', '💉', 'تطعيمات'),
+          ('الاثنين', '🔧', 'عمليات جراحية'),
+          ('الثلاثاء', '💉', 'تطعيمات'),
+          ('الأربعاء', '🩺', 'فحص وعناية روتينية'),
+          ('الخميس', '🩺', 'فحص وعناية روتينية')
+        ] %}
+    
+        {% for day, icon, task in schedule %}
+        <div class="day-card">
+          <div class="icon-circle">{{ icon }}</div>
+          <div class="day-info">
+            <h3>{{ day }}</h3>
+            <p>{{ task }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    
+      <p class="emergency">🚨 الحالات الطارئة تُستقبل في أي وقت خلال الأسبوع</p>
+    
+      <a href="{{ url_for('form_page') }}" class="main-button">احجز موعدك الآن</a>
+      <a href="{{ url_for('عرض_المواعيد') }}" class="main-button">عرض المواعيد</a>
+    </section>
+    
+    {% endblock %}
+    
+
+</body>
+</html>
+
+
